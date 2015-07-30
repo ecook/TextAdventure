@@ -6,11 +6,12 @@
  * globals: TEXTAPP document
  */
 
-(function () {
-    'use strict';
-    // create global object
-    document.TEXTAPP = {};
-}());
+//(function () {
+//    'use strict';
+//    // create global object
+//    TEXTAPP = {};
+//}());
+TEXTAPP = {};
 
 (function (textApp) {
 
