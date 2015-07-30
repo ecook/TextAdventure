@@ -1,7 +1,7 @@
 /**
- * Created by Dad on 7/24/2015.
+ * Created by Ed on 7/24/2015.
  *
- * jslint browser: true, sloppy: false, eqeq: false, vars: false, maxerr: 50,
+ * jslint browser: true, tolerate: nothing, maxerr: 50,
  * indent: 4
  * globals: TEXTAPP document
  */

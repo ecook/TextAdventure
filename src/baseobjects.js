@@ -1,7 +1,20 @@
 /**
- * Created by Dad on 7/29/2015.
+ * Created by Ed on 7/29/2015.
+ *
+ * jslint browser: true, tolerate: messy white space, maxerr: 50,
+ * indent: 4
+ * globals: TEXTAPP document
  */
+
+(function () {
+    'use strict';
+    // create global object
+    document.TEXTAPP = {};
+}());
+
 (function (textApp) {
+
+    'use strict';
 
     textApp.newInventory = function () {
         var that = {},
@@ -62,15 +75,21 @@
         if (spec.inventory) {
             spec.inventory.forEach(function (item) {
                 inventory.add(item);
-            })
+            });
         }
 
         that.use = function (spec) {
+            var result = '',
+                itemName = spec.item;
 
+            result = 'using ' + itemName;
+            return result;
         };
 
         that.action = function () {
+            var result = '';
 
+            return result;
         };
 
         that.doActions = function () {
@@ -78,7 +97,8 @@
         };
 
         that.look = function () {
-            return [name, description, inventory.look()].join(' ');
+            //return [name, description, inventory.look()].join(' ');  // commented out to pass JSLint
+            return name + ' ' + description + ' ' + inventory.look();
         };
 
         that.take = function (spec) {
@@ -100,4 +120,4 @@
         return that;
     };
 
-}(TEXTAPP = {}));
+}(TEXTAPP));

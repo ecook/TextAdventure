@@ -1,5 +1,9 @@
 /**
- * Created by Dad on 7/28/2015.
+ * Created by Ed on 7/28/2015.
+ *  *
+ * jslint browser: true, tolerate: messy white space, maxerr: 50,
+ * indent: 4
+ * globals: TEXTAPP
  */
 (function (textApp) {
     'use strict';

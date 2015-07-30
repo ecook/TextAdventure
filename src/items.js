@@ -1,26 +1,16 @@
 /**
- * Created by Dad on 7/28/2015.
+ * Created by Ed on 7/25/2015.
+ *
+ * jslint browser: true, tolerate: messy white space, maxerr: 50,
+ * indent: 4
+ * globals: TEXTAPP
  */
 (function (textApp) {
     'use strict';
 
     var items = {};
 
-    var gold = function () {
-        var that = {};
 
-        var name = 'gold';
-        var value = 10;
-        var description = 'gold coins';
-
-        that.look = function () {
-            return value + ' ' + description;
-        };
-
-        that.name = name;
-
-        return that;
-    };
 
 
     textApp.newItem = items;
