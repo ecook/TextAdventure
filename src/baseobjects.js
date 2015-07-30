@@ -39,11 +39,14 @@ var TEXTAPP = {};
         };
 
         that.doActions = function () {
+            var results = '';
             inventory.forEach(function (item) {
                 if (item.action) {
-                    item.action();
+                    results += ' ' + item.action();
                 }
             });
+
+            return results;
         };
 
         that.add = function (obj) {
@@ -89,7 +92,7 @@ var TEXTAPP = {};
         };
 
         that.doActions = function () {
-            inventory.doActions();
+            return inventory.doActions();
         };
 
         that.look = function () {
