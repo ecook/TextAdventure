@@ -24,17 +24,17 @@
         var text = textApp.inputElement.value.toLowerCase(),
             result = 'do not recognize the command: ' + text;
 
-        if (text === 'look') {
+        if (text.search(/look/) === 0) {
             result = textApp.player.location.look();
 
         } else if (text.search(/inv|inventory/) === 0) {
             result = textApp.player.look();
 
-        } else if (text.substr(0, 4) === 'take') {
+        } else if (text.search(/take/) === 0) {
             var obj = textApp.player.location.take(text.substr(5));
             if (obj) {
                 textApp.player.drop(obj);
-                result = 'item taken';
+                result = obj.name + ' taken';
             } else {
                 result = text.substr(5) + ' not found';
             }
@@ -44,7 +44,8 @@
                 '<strong>look</strong> - description of the current room <br>' +
                 '<strong>take</strong> - add an item to your inventory <br>' +
                 '<strong>drop</strong> - to remove an item from your inventory <br>' +
-                '<strong>use</strong>  - to interact with items in the room';
+                '<strong>use</strong>  - to interact with items in the room <br>' +
+                '<strong>inv</strong>  - display your status and inventory';
         }
 
         // do actions here
