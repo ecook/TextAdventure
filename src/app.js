@@ -3,7 +3,7 @@
  *
  * jslint browser: true, sloppy: false, eqeq: false, vars: false, maxerr: 50,
  * indent: 4
- * globals:
+ * globals: TEXTAPP document
  */
 (function (textApp) {
     'use strict';
@@ -26,13 +26,14 @@
 
         if (text === 'look') {
             result = textApp.player.location.look();
-        } else if (text.substr(0, 4) === 'take'){
+
+        } else if (text.substr(0, 4) === 'take') {
             var obj = textApp.player.location.take(text.substr(5));
             if (obj) {
                 textApp.player.drop(obj);
                 result = 'item taken';
             } else {
-                result = [text.substr(5), 'not found'].join(' ');
+                result = text.substr(5) + ' not found';
             }
         }
 
