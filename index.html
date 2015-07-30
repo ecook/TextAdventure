@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Text Adventure</title>
+
+    <script src="src/baseobjects.js"></script>
+    <script src="src/containers.js"></script>
+    <script src="src/rooms.js"></script>
+    <script src="src/items.js"></script>
+    <script src="src/player.js"></script>
+    <script src="src/app.js"></script>
+
+    <link href="style.css">
+
+
+</head>
+<body onload="TEXTAPP.start({descriptionClass:'description', textInput:'inputText', submitButtonId:'submitText'})">
+    <div class="description" ></div>
+    <div class="input">
+        <input id="inputText" type="text" onkeypress="if (event.keyCode == 13) document.getElementById('submitText').click()">
+        <button id="submitText">Enter</button>
+    </div>
+
+
+</body>
+</html>
