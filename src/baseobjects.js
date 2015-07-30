@@ -32,7 +32,7 @@ var TEXTAPP = {};
             var result = '';
 
             inventory.forEach(function (item) {
-                result += item.name + ' ';
+                result += item.name + '<br>';
             });
 
             return result;
@@ -97,7 +97,7 @@ var TEXTAPP = {};
 
         that.look = function () {
             //return [name, description, inventory.look()].join(' ');  // commented out to pass JSLint
-            return name + ' ' + description + ' ' + inventory.look();
+            return name + ' ' + description + '<br> has: <br> ' + inventory.look();
         };
 
         that.take = function (spec) {
