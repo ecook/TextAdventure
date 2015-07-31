@@ -14,6 +14,7 @@
         textApp.inputElement = document.getElementById(spec.textInput);
         textApp.submitButton = document.getElementById(spec.submitButtonId);
         textApp.submitButton.onclick = TEXTAPP.parseText;
+        textApp.historyElement = document.getElementsByClassName(spec.historyClass)[0];
         textApp.turn = 0;
 
         textApp.descriptionElement.innerHTML = "Welcome to a text adventure.<br>  Please enter <strong>look</strong> to see where you are or <strong>help</strong> to see a list of available commands.";
@@ -52,6 +53,7 @@
         result += textApp.player.location.doActions();
 
         textApp.descriptionElement.innerHTML = result;
+        textApp.historyElement.innerHTML += result + '<hr>';
         textApp.inputElement.value = '';
         textApp.turn += 1;
     };

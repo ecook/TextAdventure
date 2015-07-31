@@ -11,17 +11,19 @@
     <script src="src/player.js"></script>
     <script src="src/app.js"></script>
 
-    <link href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 
 </head>
-<body onload="TEXTAPP.start({descriptionClass:'description', textInput:'inputText', submitButtonId:'submitText'})">
-    <div class="description" ></div>
-    <div class="input">
-        <input id="inputText" type="text" onkeypress="if (event.keyCode == 13) document.getElementById('submitText').click()">
-        <button id="submitText">Enter</button>
+<body onload="TEXTAPP.start({descriptionClass:'description', textInput:'inputText', submitButtonId:'submitText', historyClass:'history'})">
+    <div class="descriptionInput">
+        <div class="description" ></div>
+        <div class="input">
+            <input id="inputText" type="text" onkeypress="if (event.keyCode == 13) document.getElementById('submitText').click()">
+            <button id="submitText">Enter</button>
+        </div>
     </div>
-
+    <div class="history"></div>
 
 </body>
 </html>

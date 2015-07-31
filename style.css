@@ -1,0 +1,21 @@
+body {
+    background-color: antiquewhite;
+}
+div.description {
+    border-style: solid;
+    border-width: thin;
+    height: 200px;
+    overflow: auto;
+    background-color: #ba9d37;
+}
+div.history {
+    border-style: solid;
+    border-width: thin;
+    width: 49%;
+    overflow: auto;
+    float: right;
+}
+div.descriptionInput {
+    float: left;
+    width: 50%;
+}

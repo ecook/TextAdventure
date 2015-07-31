@@ -100,8 +100,8 @@ var TEXTAPP = {};
             return name + ' ' + description + '<br> has: <br> ' + inventory.look();
         };
 
-        that.take = function (spec) {
-            var item = inventory.find(spec.name);
+        that.take = function (name) {
+            var item = inventory.find(name);
             if (item) {
                 inventory.remove(item);
             }
