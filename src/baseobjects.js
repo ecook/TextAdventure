@@ -95,13 +95,27 @@ var TEXTAPP = {};
             return inventory.doActions();
         };
 
-        that.look = function () {
-            //return [name, description, inventory.look()].join(' ');  // commented out to pass JSLint
-            return name + ' ' + description + '<br> has: <br> ' + inventory.look();
+        that.look = function (target) {
+            if (target) {
+                var obj = inventory.find(target);
+                if (obj) {
+                    return obj.look();
+                } else {
+                    return 'can not see ' + target;
+                }
+            } else {
+                var result = inventory.look();
+                if (result) {
+                    return description + '<br> has: <br> ' + result;
+                } else {
+                    return description + '<br> has: nothing';
+                }
+
+            }
         };
 
-        that.take = function (name) {
-            var item = inventory.find(name);
+        that.take = function (target) {
+            var item = inventory.find(target);
             if (item) {
                 inventory.remove(item);
             }

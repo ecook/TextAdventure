@@ -26,7 +26,11 @@
             result = 'do not recognize the command: ' + text;
 
         if (text.search(/look/) === 0) {
-            result = textApp.player.location.look();
+            if (text.length > 5) {
+                result = textApp.player.location.look(text.substr(5));
+            } else {
+                result = textApp.player.location.look();
+            }
 
         } else if (text.search(/inv|inventory/) === 0) {
             result = textApp.player.look();
@@ -39,6 +43,20 @@
             } else {
                 result = text.substr(5) + ' not found';
             }
+
+        } else if (text.search(/drop/) === 0) {
+            if (text.length > 5) {
+                var obj = textApp.player.take(text.substr(5));
+                if (obj) {
+                    textApp.player.location.drop(obj);
+                    result = obj.name + ' dropped';
+                } else {
+                    result = 'you do not have the ' + text.substr(5);
+                }
+            } else {
+                result = 'drop what?';
+            }
+
         } else if (text.search(/help/) === 0) {
             result = 'acceptable actions: <br>' +
                 '<strong>help</strong> - this help text <br>' +
