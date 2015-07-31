@@ -23,7 +23,9 @@
 
     textApp.parseText = function () {
         var text = textApp.inputElement.value.toLowerCase(),
-            result = 'do not recognize the command: ' + text;
+            result = 'do not recognize the command: ' + text,
+            dropObj,
+            takeObj;
 
         if (text.search(/look/) === 0) {
             if (text.length > 5) {
@@ -36,20 +38,20 @@
             result = textApp.player.look();
 
         } else if (text.search(/take/) === 0) {
-            var obj = textApp.player.location.take(text.substr(5));
-            if (obj) {
-                textApp.player.drop(obj);
-                result = obj.name + ' taken';
+            takeObj = textApp.player.location.take(text.substr(5));
+            if (takeObj) {
+                textApp.player.drop(takeObj);
+                result = takeObj.name + ' taken';
             } else {
                 result = text.substr(5) + ' not found';
             }
 
         } else if (text.search(/drop/) === 0) {
             if (text.length > 5) {
-                var obj = textApp.player.take(text.substr(5));
-                if (obj) {
-                    textApp.player.location.drop(obj);
-                    result = obj.name + ' dropped';
+                dropObj = textApp.player.take(text.substr(5));
+                if (dropObj) {
+                    textApp.player.location.drop(dropObj);
+                    result = dropObj.name + ' dropped';
                 } else {
                     result = 'you do not have the ' + text.substr(5);
                 }
