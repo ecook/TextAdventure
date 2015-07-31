@@ -26,11 +26,15 @@ The entire app is defined under the one global variable **TEXTAPP**.
 ### start
 This is the initialization function that assigns the UI controls to internal variables.
 
-    TEXTAPP.start({descriptionClass:'description', textInput:'inputText', submitButtonId:'submitText'})
+```javascript
+    TEXTAPP.start({descriptionClass:'description', textInput:'inputText', submitButtonId:'submitText', historyElement:'history'});
+```
     
 ### parseText
 This function is where the magic happens.  The text input from the input control is parsed and the result to written
 back to the description element.
 
-    TEXTAPP.parseText()
+```javascript
+    TEXTAPP.parseText();
+```
     
