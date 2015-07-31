@@ -59,7 +59,8 @@ describe("Inventory", function() {
 
         var result = inventory.look();
 
-        expect(result).toEqual('myobject1 myobject2 ');
+        expect(result).toContain('myobject1');
+        expect(result).toContain('myobject2');
 
     });
 });
@@ -70,7 +71,7 @@ describe("baseObject", function () {
         var obj = TEXTAPP.newGameObject({});
 
         expect(obj).toBeDefined();
-    })
+    });
 
     it('should display its details', function () {
         var obj = TEXTAPP.newGameObject({
@@ -81,6 +82,9 @@ describe("baseObject", function () {
 
         var result = obj.look();
 
-        expect(result).toEqual('obj1 myobject candle ');
-    })
+        expect(result).toContain(obj.name);
+        expect(result).toContain(obj.description);
+        expect(result).toContain('candle');
+    });
+
 });
