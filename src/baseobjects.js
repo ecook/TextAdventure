@@ -71,11 +71,11 @@ var TEXTAPP = {};
             inventory = TEXTAPP.newInventory(),
             location = null;
 
-        that.superior = function(funcName) {
-            var that = this,
-                method = that[funcName];
-            return function ( ) {
-                return method.apply(that, arguments);
+        that.superior = function (funcName) {
+            var super_that = this,
+                method = super_that[funcName];
+            return function () {
+                return method.apply(super_that, arguments);
             };
         };
 
