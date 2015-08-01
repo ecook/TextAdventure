@@ -7,13 +7,18 @@
  */
 (function (textApp) {
     'use strict';
-    var player = textApp.newGameObject({name:'bob', description:'tough guy'});
+    var player = textApp.newGameObject({
+        name: 'bob',
+        description: textApp.adjectives.random() + ' tough guy'
+    });
 
     // create the starting room
     player.location = textApp.newRoom({
-        name: 'start',
+        name: textApp.adjectives.random(),
         description: 'The starting location',
-        inventory: [textApp.newGameObject({name:'candle', description:'unlit wax candle'})]
+        inventory: [textApp.newGameObject({
+            name: textApp.adjectives.random() + ' candle'
+        })]
     });
 
     textApp.player = player;

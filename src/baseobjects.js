@@ -71,6 +71,14 @@ var TEXTAPP = {};
             inventory = TEXTAPP.newInventory(),
             location = null;
 
+        that.superior = function(funcName) {
+            var that = this,
+                method = that[funcName];
+            return function ( ) {
+                return method.apply(that, arguments);
+            };
+        };
+
         if (spec.inventory) {
             spec.inventory.forEach(function (item) {
                 inventory.add(item);

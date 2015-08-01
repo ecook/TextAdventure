@@ -9,9 +9,17 @@
     'use strict';
 
     textApp.newRoom = function (spec) {
-        var that = textApp.newGameObject(spec);
+        var that = textApp.newGameObject(spec),
+            super_look = that.superior('look');
 
+        // extending the behavior of the look method
+        that.look = function () {
+            var result = that.name + ' room<br>';
 
+            result += super_look();
+
+            return result;
+        };
 
         return that;
     };

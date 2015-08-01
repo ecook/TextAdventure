@@ -8,12 +8,24 @@
 (function (textApp) {
     'use strict';
 
-    var items = {};
+    var itemNames = [
+        'gold',
+        'dagger',
+        'sword',
+        'key',
+        'candle'
+    ];
 
+    textApp.newItem = function (spec) {
 
+        var item = textApp.newGameObject({
+            name: spec.name || itemNames[Math.floor((Math.random() * itemNames.length))],
+            description: spec.description || textApp.adjectives.random()
+        });
 
+        return item;
 
-    textApp.newItem = items;
+    };
 
 
 }(TEXTAPP));
