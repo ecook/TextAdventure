@@ -10,11 +10,25 @@
 
     textApp.newRoom = function (spec) {
         var that = textApp.newGameObject(spec),
-            super_look = that.superior('look');
+            super_look = that.superior('look'),
+            numOfItems = Math.floor((Math.random() * 5)),
+            numOfExits = Math.floor((Math.random() * 3));
+
+        // add items
+        while (numOfItems) {
+            that.drop(textApp.newItem());
+            numOfItems -= 1;
+        }
+
+        // add exits
+        while (numOfExits) {
+            that.drop(textApp.newExit({location: that}));
+            numOfExits -= 1;
+        }
 
         // extending the behavior of the look method
         that.look = function () {
-            var result = that.name + ' room<br>';
+            var result = '<span class="roomName">' + that.name + ' room</span><br>';
 
             result += super_look();
 
@@ -24,6 +38,31 @@
         return that;
     };
 
+    textApp.newExit = function (spec) {
+        var exitNames = [
+            'door',
+            'hole',
+            'passage',
+            'stair'
+        ],
+            goes = (spec && spec.goes) || null,
+            exit = textApp.newGameObject({
+                name: (spec && spec.name) || textApp.adjectives.random() + ' ' + exitNames[Math.floor((Math.random() * exitNames.length))],
+                location: (spec && spec.location) || null
+        });
 
+        exit.use = function () {
+            if (!goes) {
+                var room = textApp.newRoom();
+                var newExitObj = textApp.newExit({name: this.name, location: room, goes: this});
+                room.drop(newExitObj);
+                goes = newExitObj;
+            }
+            textApp.player.location = goes.location;
+            return 'you go through the ' + this.name;
+        };
+
+        return exit;
+    }
 
 }(TEXTAPP));

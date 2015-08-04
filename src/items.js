@@ -19,8 +19,8 @@
     textApp.newItem = function (spec) {
 
         var item = textApp.newGameObject({
-            name: spec.name || itemNames[Math.floor((Math.random() * itemNames.length))],
-            description: spec.description || textApp.adjectives.random()
+            name: (spec && spec.name) || textApp.adjectives.random() + ' ' + itemNames[Math.floor((Math.random() * itemNames.length))],
+            description: (spec && spec.description) || textApp.adjectives.random() + ' item'
         });
 
         return item;

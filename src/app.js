@@ -34,6 +34,9 @@
                 result = textApp.player.location.look();
             }
 
+        } else if (text.search(/use/) === 0) {
+            result = textApp.player.location.use(text.substr(4));
+
         } else if (text.search(/inv|inventory/) === 0) {
             result = textApp.player.look();
 

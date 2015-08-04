@@ -14,11 +14,7 @@
 
     // create the starting room
     player.location = textApp.newRoom({
-        name: textApp.adjectives.random(),
-        description: 'The starting location',
-        inventory: [textApp.newGameObject({
-            name: textApp.adjectives.random() + ' candle'
-        })]
+        description: 'The starting location'
     });
 
     textApp.player = player;

@@ -19,3 +19,9 @@ div.descriptionInput {
     float: left;
     width: 50%;
 }
+span.inventoryNames {
+    padding-left: 20px;
+}
+span.roomName {
+    font-weight: bold;
+}

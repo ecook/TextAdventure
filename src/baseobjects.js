@@ -32,7 +32,7 @@ var TEXTAPP = {};
             var result = '';
 
             inventory.forEach(function (item) {
-                result += item.name + '<br>';
+                result += '<span class="inventoryNames">' + item.name + '</span><br>';
             });
 
             return result;
@@ -66,10 +66,10 @@ var TEXTAPP = {};
 
     textApp.newGameObject = function (spec) {
         var that = {},
-            name = spec.name || '',
-            description = spec.description || '',
+            name = (spec && spec.name) || textApp.adjectives.random(),
+            description = (spec && spec.description) || '',
             inventory = TEXTAPP.newInventory(),
-            location = null;
+            location = (spec && spec.location) || null;
 
         that.superior = function (funcName) {
             var super_that = this,
@@ -79,17 +79,22 @@ var TEXTAPP = {};
             };
         };
 
-        if (spec.inventory) {
+        if (spec && spec.inventory) {
             spec.inventory.forEach(function (item) {
                 inventory.add(item);
             });
         }
 
-        that.use = function (spec) {
+        that.use = function (itemName) {
             var result = '',
-                itemName = spec.item;
+                obj = inventory.find(itemName);
 
-            result = 'using ' + itemName;
+            if (obj) {
+                result = obj.use();
+            } else {
+                result = 'can not find ' + itemName;
+            }
+
             return result;
         };
 
