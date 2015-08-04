@@ -11,8 +11,8 @@
     textApp.newRoom = function (spec) {
         var that = textApp.newGameObject(spec),
             super_look = that.superior('look'),
-            numOfItems = Math.floor((Math.random() * 5)),
-            numOfExits = Math.floor((Math.random() * 3));
+            numOfItems = Math.floor(Math.random() * 5),  // the max number of items that might be generated
+            numOfExits = Math.floor(Math.random() * 3);  // the max number of exits that might be generated
 
         // add items
         while (numOfItems) {
@@ -39,30 +39,25 @@
     };
 
     textApp.newExit = function (spec) {
-        var exitNames = [
-            'door',
-            'hole',
-            'passage',
-            'stair'
-        ],
+        var exitNames = ['door', 'hole', 'passage', 'stair'],
             goes = (spec && spec.goes) || null,
             exit = textApp.newGameObject({
-                name: (spec && spec.name) || textApp.adjectives.random() + ' ' + exitNames[Math.floor((Math.random() * exitNames.length))],
+                name: (spec && spec.name) || textApp.adjectives.random() + ' ' + exitNames[Math.floor(Math.random() * exitNames.length)],
                 location: (spec && spec.location) || null
-        });
+            });
 
         exit.use = function () {
             if (!goes) {
                 var room = textApp.newRoom();
-                var newExitObj = textApp.newExit({name: this.name, location: room, goes: this});
+                var newExitObj = textApp.newExit({name: exit.name, location: room, goes: exit});
                 room.drop(newExitObj);
                 goes = newExitObj;
             }
             textApp.player.location = goes.location;
-            return 'you go through the ' + this.name;
+            return 'you go through the ' + exit.name;
         };
 
         return exit;
-    }
+    };
 
 }(TEXTAPP));

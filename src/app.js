@@ -64,12 +64,12 @@
 
         } else if (text.search(/help/) === 0) {
             result = 'acceptable actions: <br>' +
-                '<strong>help</strong> - this help text <br>' +
-                '<strong>look</strong> - description of the current room <br>' +
-                '<strong>take</strong> - add an item to your inventory <br>' +
-                '<strong>drop</strong> - to remove an item from your inventory <br>' +
-                '<strong>use</strong>  - to interact with items in the room <br>' +
-                '<strong>inv</strong>  - display your status and inventory';
+                    '<strong>help</strong> - this help text <br>' +
+                    '<strong>look</strong> - description of the current room <br>' +
+                    '<strong>take</strong> - add an item to your inventory <br>' +
+                    '<strong>drop</strong> - to remove an item from your inventory <br>' +
+                    '<strong>use</strong>  - to interact with items in the room <br>' +
+                    '<strong>inv</strong>  - display your status and inventory';
         }
 
         // do actions here
