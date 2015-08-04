@@ -15,7 +15,7 @@ The baseobjects.js file contains the root objects for the game.  From these all 
   text is parsed and executed.
   
 The idea with this adventure is to have objects dynamically generated has more of the game is explored.  So the 
-generation code, which is not yet written, will create unique objects based on a set of options.
+generation code will create unique objects based on a set of options.
 
 The entire app is defined under the one global variable **TEXTAPP**.
 
