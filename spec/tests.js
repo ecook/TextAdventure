@@ -68,23 +68,38 @@ describe("Inventory", function() {
 describe("baseObject", function () {
 
     it('should be defined', function () {
-        var obj = TEXTAPP.newGameObject({});
+        var obj = TEXTAPP.newGameObject({
+            name:'new room',
+            description:'room description',
+            inventory: [TEXTAPP.newGameObject({name:'sticky candle'})]
+        });
 
         expect(obj).toBeDefined();
     });
 
-    it('should display its details', function () {
-        var obj = TEXTAPP.newGameObject({
-            name:'obj1',
-            description:'myobject',
-            inventory: [TEXTAPP.newGameObject({name:'candle', description:'unlit wax candle'})]
+    describe('should display', function () {
+        var result = '',
+            obj = TEXTAPP.newRoom({
+                name:'test',
+                description:'room description',
+                inventory: [TEXTAPP.newGameObject({name:'sticky candle'})]
+            });
+
+        beforeEach(function () {
+            result = obj.look();
         });
 
-        var result = obj.look();
+        it('the room name', function () {
+            expect(result).toContain(obj.name);
+        });
 
-        expect(result).toContain(obj.name);
-        expect(result).toContain(obj.description);
-        expect(result).toContain('candle');
+        it('the room description', function () {
+            expect(result).toContain('room description');
+        });
+
+        it('the rooms inventory', function () {
+            expect(result).toContain('sticky candle');
+        });
     });
 
 });
