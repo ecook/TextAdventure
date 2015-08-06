@@ -19,6 +19,7 @@
 
         textApp.descriptionElement.innerHTML = "Welcome to a text adventure.<br>  Please enter <strong>look</strong> to see where you are or <strong>help</strong> to see a list of available commands.";
 
+        textApp.inputElement.focus();
     };
 
     textApp.parseText = function () {

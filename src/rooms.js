@@ -34,10 +34,17 @@
         }
 
         // extending the behavior of the look method
-        that.look = function () {
-            var result = '<span class="roomName">' + that.name + ' room</span><br>';
+        that.look = function (target) {
+            var result = '';
 
-            result += super_look();
+            if (target) {
+                result = super_look(target);
+            } else {
+                result = '<span class="roomName">' + that.name + ' room</span><br>';
+
+                result += super_look();
+
+            }
 
             return result;
         };
