@@ -12,7 +12,8 @@
         var that = textApp.newGameObject(spec),
             super_look = that.superior('look'),
             numOfItems = Math.floor(Math.random() * 5),  // the max number of items that might be generated
-            numOfExits = Math.floor(Math.random() * 3);  // the max number of exits that might be generated
+            numOfExits = Math.floor(Math.random() * 3),  // the max number of exits that might be generated
+            numOfMonsters = Math.floor(Math.random() * 2);
 
         // add items
         while (numOfItems) {
@@ -24,6 +25,12 @@
         while (numOfExits) {
             that.drop(textApp.newExit({location: that}));
             numOfExits -= 1;
+        }
+
+        // add monsters
+        while (numOfMonsters) {
+            that.drop(textApp.newMonster());
+            numOfMonsters -= 1;
         }
 
         // extending the behavior of the look method
@@ -39,7 +46,7 @@
     };
 
     textApp.newExit = function (spec) {
-        var exitNames = ['door', 'hole', 'passage', 'stair'],
+        var exitNames = ['door', 'hole', 'passage', 'stair', 'gate', 'aperture', 'portal', 'hatch', 'entry', 'opening', 'egress'],
             goes = (spec && spec.goes) || null,
             exit = textApp.newGameObject({
                 name: (spec && spec.name) || textApp.adjectives.random() + ' ' + exitNames[Math.floor(Math.random() * exitNames.length)],

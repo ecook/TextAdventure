@@ -17,6 +17,8 @@
         description: 'The starting location'
     });
 
+    player.location.drop(textApp.newExit());
+
     textApp.player = player;
 
 

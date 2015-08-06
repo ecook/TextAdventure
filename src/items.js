@@ -13,7 +13,34 @@
         'dagger',
         'sword',
         'key',
-        'candle'
+        'candle',
+        'ring',
+        'wand',
+        'pistol',
+        'ammo',
+        'necklace',
+        'boot',
+        'hat',
+        'can',
+        'barrel',
+        'figurine',
+        'mace',
+        'club',
+        'wood',
+        'flowers',
+        'glasses',
+        'apple',
+        'meat',
+        'painting',
+        'book',
+        'axe',
+        'paper',
+        'fish',
+        'growth',
+        'medicine',
+        'soup',
+        'vial'
+
     ];
 
     textApp.newItem = function (spec) {
